@@ -24,6 +24,10 @@ class Support
                 return $value;
             }
 
+            if (windows_os()) {
+                return $key . ' (' . $value . ')';
+            }
+
             return (new static())->reset($key) . "\n    " . (new static())->dim($value);
         });
     }
