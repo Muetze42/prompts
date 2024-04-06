@@ -49,7 +49,7 @@ class Prompt extends AbstractPrompt
             return array_values(Arr::where($optionsKeys, fn (string $value, int $key) => in_array($key, $result)))[0];
         }
 
-        return select(...func_get_args());
+        return parent::select(...func_get_args());
     }
 
     /**
@@ -94,9 +94,12 @@ class Prompt extends AbstractPrompt
             return array_values(Arr::where($optionsKeys, fn (string $value, int $key) => in_array($key, $result)));
         }
 
-        return multiselect(...func_get_args());
+        return parent::multiselect(...func_get_args());
     }
 
+    /**
+     * Prompt the user to select an option. Options always numeric for Windows and "subtitled" options.
+     */
     public static function select2(
         string $label,
         array|Collection $options,
@@ -109,6 +112,9 @@ class Prompt extends AbstractPrompt
         return static::select($label, Support::subtitled($options), $default, $scroll, $validate, $hint, $required);
     }
 
+    /**
+     * Prompt the user to select multiple options. Options always numeric for Windows and 'subtitled' options.
+     */
     public static function multiselect2(
         string $label,
         array|Collection $options,

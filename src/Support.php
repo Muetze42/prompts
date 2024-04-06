@@ -18,6 +18,7 @@ class Support
         if ($options instanceof Collection) {
             $options = $options->toArray();
         }
+
         return Arr::map($options, function (string $value, string|int $key) {
             if (is_int($key)) {
                 return $value;
