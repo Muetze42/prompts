@@ -23,7 +23,7 @@ class Support
                 return $value;
             }
 
-            return $key . "\n    " . (new static())->dim($value);
+            return (new static())->reset($key) . "\n    " . (new static())->dim($value);
         });
     }
 }
