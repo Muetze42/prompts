@@ -6,9 +6,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Laravel\Prompts\Concerns\Colors;
 
-/**
- * @mixin \Laravel\Prompts\Concerns\Colors
- */
 class Support
 {
     use Colors;
